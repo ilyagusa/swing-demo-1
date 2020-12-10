@@ -8,7 +8,14 @@
  */
 
 // Apply the java plugin to add support for Java
-apply plugin: 'java'
+plugins {
+  id 'java'
+  id 'edu.sc.seis.launch4j' version '2.4.9'
+}
+
+launch4j {
+  mainClassName = 'SwingDemo'
+}
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -21,7 +28,7 @@ repositories {
 dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.7'
-
+    classpath 'edu.sc.seis.gradle:launch4j:2.4.9'
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
